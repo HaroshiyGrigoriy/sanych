@@ -1,0 +1,76 @@
+.sn-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-h);
+  background: var(--color-shell-bg);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+
+  /* тонкая «акцентная» линия снизу */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: var(--brand-grad);
+    opacity: .35;
+    pointer-events: none;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* бренд | пространство | подпись */
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  /* Бренд слева: лого + слово ForYou */
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--brand); /* управляет цветом логотипа (currentColor) и текста */
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: background .16s ease, transform .12s ease;
+
+    &:hover { background: rgba(0,0,0,0.04); transform: translateY(-1px); }
+    &:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(45,59,45,.25); }
+  }
+
+  /* Лого (SVG) — перекрас через currentColor */
+  &__logo-img {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    color: var(--brand);          /* цвет фигур с fill/stroke = currentColor */
+    background: #e9e3d7;         /* мягкая «бумажная» подложка */
+    border-radius: 10%;
+    box-shadow: var(--shadow-card);
+    padding: 6px;                 /* внутренний отступ под иконку */
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: .2px;
+  }
+
+  /* Подпись справа */
+  &__tagline {
+    justify-self: end;
+    color: var(--color-text-muted);
+    font-size: .95rem;
+    font-weight: 500;
+    opacity: .9;
+    white-space: nowrap;
+
+    @media (max-width: 37.5rem) { /* ~600px */
+      font-size: .9rem;
+      opacity: .85;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.sn-hero {
+  padding-block: var(--space-xl);
+  display: grid;
+  gap: var(--space-md);
+
+  &__title {
+    font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem);
+    font-weight: 800;
+    letter-spacing: .2px;
+    color: var(--color-text-main);
+  }
+
+  &__desc {
+    max-width: 60ch;
+    font-size: 1rem;
+    opacity: .9;
+  }
+}

@@ -1,0 +1,54 @@
+/* src/styles/_theme-sanych.scss */
+@use "./tokens" as t;
+
+:root {
+  /* Фоны */
+  --color-page-bg: #eeebdc;
+  --color-shell-bg: #faf1d6;
+  --color-card-bg: #fdf3e1;
+  --color-text-main: #3f3325;
+  --color-text-muted: #8a7154;
+  --color-border-subtle: rgba(0,0,0,0.08);
+
+  --brand: #2d3b2d;         /* тёмно-зелёный кофейный, «зерновой» */
+  --brand-ink: #ffffff;     /* светлый для инверсии на плашках */
+  --brand-accent: #a87b43;  /* латте-золото (акцент) */
+  --brand-grad: linear-gradient(90deg, #3f5b3f 0%, #a87b43 60%, transparent 100%);
+
+  /* Текст */
+  --color-text-main: #3f3325;
+
+  /* Тени */
+  --shadow-shell: 0 20px 40px rgba(0, 0, 0, 0.22);
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.16);
+
+  /* Отступы (из Sass токенов) */
+  --space-xs: #{t.$space-xs};
+  --space-sm: #{t.$space-sm};
+  --space-md: #{t.$space-md};
+  --space-lg: #{t.$space-lg};
+  --space-xl: #{t.$space-xl};
+
+  /* Радиусы */
+  --radius-shell: #{t.$radius-shell};
+  --radius-card: #{t.$radius-card};
+  --radius-pill: #{t.$radius-pill};
+  --radius-small: #{t.$radius-small};
+
+  /* Типографика */
+  --font-base: #{t.$font-base};
+  --line-height-base: #{t.$line-height-base};
+}
+
+@media (min-width: t.$bp-tablet) {
+  :root { 
+    --header-h:#{t.$h-header-desktop};
+    /* Можно добавить темы для разных брейкпоинтов, если нужно */
+  }
+}
+@media(min-width: t.$bp-desktop) {
+  :root { 
+    --header-h:#{t.$h-header-desktop};
+    /* Можно добавить темы для разных брейкпоинтов, если нужно */
+  }
+}

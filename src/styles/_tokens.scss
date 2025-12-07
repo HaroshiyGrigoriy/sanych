@@ -1,0 +1,33 @@
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+$space-xl: 2.5rem;
+
+/* Радиусы */
+$radius-small: 0.5rem;
+$radius-shell: 2rem;
+$radius-card: 1.25rem;
+$radius-pill: 60rem;
+
+
+
+$font-base: 'Helvetica Neue', Arial, sans-serif;
+
+$container-max:  75rem;
+$container-padding: 1rem;
+
+$bp-mobile: 37.5rem; // 600px
+$bp-tablet: 48rem; // 768px
+$bp-desktop: 64rem; // 1024px
+$bp-desktop-lg: 90rem; // 1440px
+$bp-tv: 112.5rem; // 1800px
+$bp-4k: 150rem; // 2400px
+
+$h-header-mobile: 3.5rem;
+$h-header-desktop: 4rem;
+$h-footer: 4.5rem;
+
+$font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;  
+$line-height-base: 1.5;
+$line-height-tight: 1.2;
