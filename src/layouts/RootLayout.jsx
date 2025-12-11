@@ -6,9 +6,12 @@ export default function RootLayout() {
     <>
       <SanychHeader />
 
-      {/* Общая обёртка для контента страниц */}
-      <main className="sn-main">
-        <Outlet />
+        <main className="sn-main">
+        <div className="sn-shell">
+          <div className="sn-shell__inner sn-container">
+            <Outlet />
+          </div>
+        </div>
       </main>
     </>
   );

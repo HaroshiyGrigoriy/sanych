@@ -15,8 +15,8 @@ export default function SanychHeader() {
   }, [location.pathname]);
 
   return (
-  <header className="sn-header" role="banner">
-      <div className="sn-container sn-header__inner">
+  <header className="sn-header " role="banner">
+      <div className="sn-header__inner sn-container ">
         <NavLink to="/" end className="sn-header__brand" aria-label="На главную">
           <img
             src="/images/coffee-machine.svg"            // <-- файл лежит в public/images/logo.svg

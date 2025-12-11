@@ -7,12 +7,10 @@
   --hero-line: var(--color-border-subtle, rgba(0,0,0,.08));
   --hero-accent: var(--brand, #ffffff);
   --hero-ink: var(--color-text-main, #cda770);
-
   background:
     linear-gradient(180deg, rgba(0,0,0,.015), rgba(0,0,0,.015)),
     var(--hero-bg);
   border: 1px solid var(--hero-line);
-  border-radius: var(--hero-radius);
   margin-bottom: var(--space-lg);
 }
 
@@ -100,6 +98,7 @@
 }
 
 .sn-hero-card {
+  margin-top: 2rem;
   background: #fffefb;
   border: 1px solid var(--hero-line);
   border-radius: calc(var(--hero-radius) - 2px);
@@ -107,7 +106,6 @@
   display: grid;
   gap: 8px;
   box-shadow: 0 8px 24px rgba(0,0,0,.06);
-  margin-right: 1rem;
 }
 
 .sn-hero-card__badge {

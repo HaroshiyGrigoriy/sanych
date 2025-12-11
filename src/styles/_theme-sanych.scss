@@ -3,20 +3,20 @@
 
 :root {
   /* Фоны */
-  --color-page-bg: #eeebdc;
-  --color-shell-bg: #faf1d6;
-  --color-card-bg: #fdf3e1;
+  --color-page-bg: #f8f1d0;
+  --color-shell-bg: #fdf7e5;
+  --color-card-bg: #e2ffe941;
   --color-text-main: #3f3325;
   --color-text-muted: #8a7154;
   --color-border-subtle: rgba(0,0,0,0.08);
 
-  --brand: #137013;         /* тёмно-зелёный кофейный, «зерновой» */
+  --brand: #234b23;         /* тёмно-зелёный кофейный, «зерновой» */
   --brand-ink: #ffffff;     /* светлый для инверсии на плашках */
-  --brand-accent: #a87b43;  /* латте-золото (акцент) */
+  --brand-accent: #bd8745;  /* латте-золото (акцент) */
   --brand-grad: linear-gradient(90deg, #3f5b3f 0%, #a87b43 60%, transparent 100%);
 
   /* Текст */
-  --color-text-main: #3f3325;
+  --color-text-main: #1f2b46;
 
   /* Тени */
   --shadow-shell: 0 20px 40px rgba(0, 0, 0, 0.22);

@@ -1,20 +1,27 @@
 @use "./tokens" as t;
-body{
+html,body{
   min-height: 100dvh;
   background-color: var(--color-page-bg);
   color: var(--color-text-main);
   font-family: var(--font-base);
   line-height: var(--line-height-base);
+  overflow-x: hidden;
+ box-sizing: border-box;
+
+
 }
 
 .sn-container {
   max-width: var(--container-max, 75rem); /* ~1200px */
   width: 100%;
   margin-inline: auto;
-  padding-inline: var(--container-padding, 1rem);
+    box-sizing: border-box;
+
 }
 .sn-main {
   /* Вверху — 0, внизу — комфортный отступ для дыхания */
   padding-block-start: 0;
+  width: 100%;
+  box-sizing: border-box;
   padding-block-end: var(--space-xl);
 }
