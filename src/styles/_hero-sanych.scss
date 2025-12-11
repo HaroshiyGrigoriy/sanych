@@ -5,8 +5,8 @@
   --hero-radius: var(--radius-lg, 12px);
   --hero-bg: var(--color-card-bg, #fffdf8);
   --hero-line: var(--color-border-subtle, rgba(0,0,0,.08));
-  --hero-accent: var(--brand, #6c8a5b);
-  --hero-ink: var(--color-text-main, #2d2212);
+  --hero-accent: var(--brand, #ffffff);
+  --hero-ink: var(--color-text-main, #cda770);
 
   background:
     linear-gradient(180deg, rgba(0,0,0,.015), rgba(0,0,0,.015)),
@@ -81,7 +81,6 @@
   font-size: 14px; text-decoration: none;
   border-radius: 999px; padding: 8px 14px;
   border: 1px solid var(--hero-line);
-  background: #fffefb; color: var(--hero-ink);
   transition: transform 120ms ease, background 160ms ease, border-color 160ms ease;
 
   &:hover { transform: translateY(-1px); }
