@@ -1,7 +1,14 @@
 // src/components/HeroSanych.jsx
 import { Link } from "react-router-dom";
+import { MODULES } from "../data/modules.js";
 
+
+// чтобы не дублировать пути руками
+const menuModule = MODULES.find((m) => m.id === "menu");
+// На всякий случай запасной вариант
+const menuPath = menuModule?.path ?? "/modules/menu";
 export default function HeroSanych() {
+
   return (
     <section
       className="sn-hero"
@@ -42,7 +49,7 @@ export default function HeroSanych() {
 
           <div className="sn-hero__cta">
             {/* Переход на страницу с меню (то, что ты уже делал) */}
-            <Link to="/menu" className="sn-btn sn-btn--primary">
+            <Link to={menuPath} className="sn-btn sn-btn--primary">
               Открыть модуль «Меню»
             </Link>
 
@@ -85,7 +92,7 @@ export default function HeroSanych() {
               себе в ногу. Меню, которое можно масштабировать.
             </p>
 
-            <Link to="/menu" className="sn-hero-card__link">
+           <Link to={menuPath} className="sn-hero-card__link">
               Перейти в модуль «Меню»
             </Link>
           </article>

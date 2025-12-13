@@ -8,7 +8,7 @@ export default function RootLayout() {
 
         <main className="sn-main">
         <div className="sn-shell">
-          <div className="sn-shell__inner sn-container">
+          <div className="sn-shell__inner">
             <Outlet />
           </div>
         </div>

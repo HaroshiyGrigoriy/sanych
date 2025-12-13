@@ -11,12 +11,15 @@
 }
 
 .sn-modules__title {
-  margin: 0 0 0.5rem;
-  font-size: 1.8rem;
-  line-height: 1.2;
+    display: flex;
+    justify-content: center; 
+    margin: 0 0 0.5rem;
+    font-size: 1.8rem;
+    line-height: 1.2;
 }
 
 .sn-modules__subtitle {
+    padding-inline-start: .8rem;
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -45,10 +48,10 @@
 
 /* Карточка модуля */
 .sn-modules__card {
-  background: #f7f2ea; // тёплый бежевый
+background: var(--color-card-bg);
   border-radius: 18px;
   padding: 1.25rem 1.4rem;
-  box-shadow: 0 10px 26px rgba(20, 20, 20, 0.06);
+box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
