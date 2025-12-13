@@ -15,40 +15,34 @@
   --brand-accent: #bd8745;  /* латте-золото (акцент) */
   --brand-grad: linear-gradient(90deg, #3f5b3f 0%, #a87b43 60%, transparent 100%);
 
-  /* Текст */
-  --color-text-main: #1f2b46;
 
   /* Тени */
-  --shadow-shell: 0 20px 40px rgba(0, 0, 0, 0.22);
+   --shadow-shell: 0 20px 40px rgba(0, 0, 0, 0.22);
   --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.16);
 
-  /* Отступы (из Sass токенов) */
+  /* Отступы */
   --space-xs: #{t.$space-xs};
   --space-sm: #{t.$space-sm};
   --space-md: #{t.$space-md};
   --space-lg: #{t.$space-lg};
   --space-xl: #{t.$space-xl};
 
-  /* Радиусы */
-  --radius-shell: #{t.$radius-shell};
-  --radius-card: #{t.$radius-card};
-  --radius-pill: #{t.$radius-pill};
+  /* Радиусы (добавляем недостающие alias) */
   --radius-small: #{t.$radius-small};
+  --radius-md: #{t.$radius-card};   /* alias под “средний” */
+  --radius-lg: #{t.$radius-shell};  /* alias под “большой” */
+  --radius-card: #{t.$radius-card};
+  --radius-shell: #{t.$radius-shell};
+  --radius-pill: #{t.$radius-pill};
 
   /* Типографика */
   --font-base: #{t.$font-base};
   --line-height-base: #{t.$line-height-base};
+  --line-height-tight: #{t.$line-height-tight};
 }
 
 @media (min-width: t.$bp-tablet) {
-  :root { 
-    --header-h:#{t.$h-header-desktop};
-    /* Можно добавить темы для разных брейкпоинтов, если нужно */
-  }
-}
-@media(min-width: t.$bp-desktop) {
-  :root { 
-    --header-h:#{t.$h-header-desktop};
-    /* Можно добавить темы для разных брейкпоинтов, если нужно */
+  :root {
+    --header-h: #{t.$h-header-desktop};
   }
 }

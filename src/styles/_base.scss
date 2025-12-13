@@ -1,27 +1,46 @@
+/* src/styles/base.scss */
 @use "./tokens" as t;
-html,body{
+
+/* 1) Глобальный box-sizing (чтобы padding не ломал ширины) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2) База документа */
+html,
+body {
   min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
+
+/* 3) Основной фон/текст/шрифты */
+body {
   background-color: var(--color-page-bg);
   color: var(--color-text-main);
   font-family: var(--font-base);
   line-height: var(--line-height-base);
   overflow-x: hidden;
- box-sizing: border-box;
-
-
 }
 
+/* 4) Корневой контейнер React */
+#root {
+  min-height: 100dvh;
+}
+
+/* 5) Контейнер: ширина + боковой паддинг (важно для мобилок) */
 .sn-container {
-  max-width: var(--container-max, 75rem); /* ~1200px */
+  max-width: var(--container-max, 75rem);
   width: 100%;
   margin-inline: auto;
-    box-sizing: border-box;
-
+  padding-inline: var(--container-padding, 1rem);
 }
+
+/* 6) Главная зона контента */
 .sn-main {
-  /* Вверху — 0, внизу — комфортный отступ для дыхания */
   padding-block-start: 0;
   width: 100%;
-  box-sizing: border-box;
   padding-block-end: var(--space-xl);
 }

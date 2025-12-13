@@ -1,11 +1,10 @@
 // src/pages/ModulePage.jsx
 import { useParams, Link } from "react-router-dom";
-import { MODULES } from "../components/ModulesSection.jsx";
+import { getModule } from "../data/modules.js";
 
 export default function ModulePage() {
   const { moduleId } = useParams();
-
-  const moduleData = MODULES.find((m) => m.id === moduleId);
+  const moduleData = getModule(moduleId);
 
   if (!moduleData) {
     return (
