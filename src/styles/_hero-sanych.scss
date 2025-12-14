@@ -46,7 +46,7 @@
   /* Фолбек + современный микс */
   color: var(--hero-accent);
   color: color-mix(in srgb, var(--hero-accent) 92%, black);
-}
+text-align: center;}
 
 .sn-hero__lead {
   font-size: 15px;

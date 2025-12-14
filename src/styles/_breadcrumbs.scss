@@ -1,0 +1,8 @@
+.sn-crumbs {
+  display: flex;
+  gap:var(--space-sm);
+  align-items: baseline;
+  margin: 1rem 0;
+  color: var(--color-text-breadcrumbs);
+  font-size: 0,75rem;
+}

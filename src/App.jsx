@@ -3,7 +3,7 @@ import Home from "./pages/Home.jsx";
 import RootLayout from "./layouts/RootLayout.jsx";
 import MenuPage from "./pages/Menu"
 import Drinks from "./pages/Drinks"
-import ModulePage from "./pages/ModulePage.jsx";
+import ModulePage from "./pages/modules/ModulePage.jsx";
 
 function App() {
   

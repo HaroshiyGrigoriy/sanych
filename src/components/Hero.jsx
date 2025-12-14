@@ -1,6 +1,6 @@
 // src/components/HeroSanych.jsx
 import { Link } from "react-router-dom";
-import { MODULES } from "../data/modules.js";
+import { MODULES } from "../modules/modules.js";
 
 
 // чтобы не дублировать пути руками

@@ -1,8 +1,15 @@
 // src/components/SanychModulesSection.jsx
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { MODULES } from "../data/modules.js";
+import { MODULES, modulePath } from "../modules/modules.js";
 
 export default function SanychModulesSection() {
+  const [activeId, setActiveId] = useState(null);
+
+  function toggle(id) {
+    setActiveId((prev) => (prev === id ? null : id));
+  }
+
   return (
     <section
       id="sn-modules"
@@ -14,32 +21,53 @@ export default function SanychModulesSection() {
           Модули системы «Саныч»
         </h2>
         <p className="sn-modules__subtitle">
-          Ниже — ключевые блоки, из которых собирается кофейня: от документов и
-          меню до команды и денег. Можно идти по порядку или точечно брать то,
-          что болит.
+          По умолчанию — коротко. Нажимаешь на карточку — раскрывается смысл и появляется вход.
         </p>
       </header>
 
       <div className="sn-modules__grid">
-        {MODULES.map((mod) => (
-          <article key={mod.id} className="sn-modules__card">
-            <div className="sn-modules__card-tag">{mod.category}</div>
-            <h3 className="sn-modules__card-title">{mod.title}</h3>
-            <p className="sn-modules__card-desc">{mod.description}</p>
+        {MODULES.map((mod) => {
+          const isActive = activeId === mod.id;
+          const to = modulePath(mod);
 
-            <ul className="sn-modules__card-list">
-              {mod.points.map((p, i) => (
-                <li key={i} className="sn-modules__card-item">
-                  {p}
-                </li>
-              ))}
-            </ul>
+          return (
+            <article
+              key={mod.id}
+              className={`sn-modules__card ${isActive ? "sn-modules__card--active" : ""}`}
+            >
+              {/* Кнопка-тогглер (внутри карточки), Link отдельно */}
+              <button
+                type="button"
+                className="sn-modules__card-toggle"
+                onClick={() => toggle(mod.id)}
+                aria-expanded={isActive}
+              >
+                <div className="sn-modules__card-tag">{mod.category}</div>
+                <h3 className="sn-modules__card-title">{mod.title}</h3>
 
-            <Link to={mod.path} className="sn-modules__card-link">
-              Перейти в модуль →
-            </Link>
-          </article>
-        ))}
+                <p className="sn-modules__card-desc">
+                  {isActive ? mod.description : mod.teaser}
+                </p>
+
+                {isActive && (
+                  <ul className="sn-modules__card-list">
+                    {mod.points.map((p, i) => (
+                      <li key={i} className="sn-modules__card-item">
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </button>
+
+              {isActive && (
+                <Link to={to} className="sn-modules__card-link sn-modules__card-cta">
+                  Перейти в модуль →
+                </Link>
+              )}
+            </article>
+          );
+        })}
       </div>
     </section>
   );
