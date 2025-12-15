@@ -1,0 +1,58 @@
+.sn-modcard {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-md);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--space-sm);
+
+  /* ВАЖНО: фиксируем высоту, чтобы сетка не прыгала */
+  min-height: 340px;
+}
+
+.sn-modcard__toggle {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  gap: 8px;
+}
+
+.sn-modcard__tag {
+  width: max-content;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(0,0,0,.06);
+}
+
+.sn-modcard__title { margin: 0; font-size: 1.05rem; }
+.sn-modcard__teaser { margin: 0; color: var(--color-text-muted); line-height: 1.5; }
+
+.sn-modcard__hint {
+  font-size: .85rem;
+  color: var(--brand);
+  opacity: .85;
+}
+
+.sn-modcard__details {
+  overflow: auto;               /* если текста много — скролл внутри */
+  padding-top: var(--space-sm);
+  border-top: 1px dashed rgba(0,0,0,.12);
+}
+
+.sn-modcard__desc { margin: 0 0 var(--space-sm); line-height: 1.6; }
+
+.sn-modcard__list {
+  margin: 0 0 var(--space-sm);
+  padding-left: 1.1rem;
+  list-style: disc;             /* важно, если reset убивает маркеры */
+  display: grid;
+  gap: 6px;
+}
