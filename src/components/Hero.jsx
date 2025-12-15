@@ -1,13 +1,9 @@
 // src/components/HeroSanych.jsx
-import { Link } from "react-router-dom";
-import { MODULES } from "../modules/modules.js";
+import UiButton from "./ui/UiButton.jsx";
+import { toModule } from "../utils/routes.js";
 
-
-// чтобы не дублировать пути руками
-const menuModule = MODULES.find((m) => m.id === "menu");
-// На всякий случай запасной вариант
-const menuPath = menuModule?.path ?? "/modules/menu";
 export default function HeroSanych() {
+  const menuPath = toModule("menu");
 
   return (
     <section
@@ -49,14 +45,8 @@ export default function HeroSanych() {
 
           <div className="sn-hero__cta">
             {/* Переход на страницу с меню (то, что ты уже делал) */}
-            <Link to={menuPath} className="sn-btn sn-btn--primary">
-              Открыть модуль «Меню»
-            </Link>
-
-            {/* Скролл к секции с модулями на главной */}
-            <a href="#sn-modules" className="sn-btn sn-btn--ghost">
-              Посмотреть все модули ниже
-            </a>
+            <UiButton to={menuPath} variant="primary">Открыть модуль «Меню»</UiButton>
+            <UiButton href="#sn-modules" variant="ghost">Посмотреть все модули ниже</UiButton>
           </div>
         </div>
 
@@ -92,9 +82,9 @@ export default function HeroSanych() {
               себе в ногу. Меню, которое можно масштабировать.
             </p>
 
-           <Link to={menuPath} className="sn-hero-card__link">
-              Перейти в модуль «Меню»
-            </Link>
+          <UiButton to={menuPath} variant="subtle" size="sm">
+              Перейти в модуль
+            </UiButton>
           </article>
         </aside>
       </div>
