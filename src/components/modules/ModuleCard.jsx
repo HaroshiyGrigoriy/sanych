@@ -3,6 +3,9 @@ import { toModule } from "../../utils/routes.js";
 
 export default function ModuleCard({ module, active, onToggle }) {
   const go = toModule(module.id);
+if (!Array.isArray(module.points)) {
+  console.warn("Module without points[]:", module);
+}
 
   return (
     <article className={`sn-modcard ${active ? "is-active" : ""}`}>

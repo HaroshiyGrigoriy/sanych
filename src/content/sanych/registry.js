@@ -16,3 +16,9 @@ export function getSection(moduleId, sectionId) {
   if (!mod) return null;
   return mod.sections.find((s) => s.id === sectionId) ?? null;
 }
+
+export function getTopic(moduleId, sectionId, topicId) {
+  const sec = getSection(moduleId, sectionId);
+  if (!sec) return null;
+  return sec.topics.find((t) => t.id === topicId) ?? null;
+}

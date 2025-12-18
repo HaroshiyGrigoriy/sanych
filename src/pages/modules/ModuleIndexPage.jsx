@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { getModule } from "../../content/sanych/registry.js";
-import UiButton from "../../components/ui/UiButton.jsx";
-import { toSection } from "../../utils/routes.js";
+import SectionCard from "../../components/modules/SectionCard.jsx";
+
 
 export default function ModuleIndexPage() {
   const { moduleId } = useParams();
   const mod = getModule(moduleId);
 
-  if (!mod) return <p>Модуль не найден.</p>;
+  if (!mod) return  <main className="sn-container"><p>Модуль не найден.</p></main>;
 
   return (
     <main className="sn-container sn-module-page">
@@ -20,15 +20,9 @@ export default function ModuleIndexPage() {
       <section className="sn-module-page__section">
         <h2 className="sn-module-page__subtitle">Разделы модуля</h2>
 
-        <div className="sn-module-page__sections">
-          {mod.sections.map((s) => (
-            <article key={s.id} className="sn-section-card">
-              <h3 className="sn-section-card__title">{s.title}</h3>
-              <p className="sn-section-card__teaser">{s.teaser}</p>
-              <UiButton to={toSection(mod.id, s.id)} variant="primary" size="sm">
-                Открыть раздел →
-              </UiButton>
-            </article>
+    <div className="sn-section-grid">
+          {mod.sections.map((sec) => (
+            <SectionCard key={sec.id} moduleId={mod.id} section={sec} />
           ))}
         </div>
       </section>

@@ -15,7 +15,7 @@ function App() {
 
         {/* /menu — отдельная страница */}
       
-        <Route path="modules/:moduleId" element={<ModuleLayout />}>
+        <Route path=":moduleId" element={<ModuleLayout />}>
           <Route index element={<ModuleIndexPage />} />
           <Route path=":sectionId" element={<ModuleSectionPage />} />
         </Route>
