@@ -1,7 +1,10 @@
 export function toModule(moduleId) {
-  return `/modules/${moduleId}`;
+  return `/${moduleId}`;
 }
 
 export function toSection(moduleId, sectionId) {
-  return `/modules/${moduleId}/${sectionId}`;
+  return `/${moduleId}/${sectionId}`;
+}
+export function toTopic(moduleId, sectionId, topicId) {
+  return `/${moduleId}/${sectionId}/${topicId}`;
 }
