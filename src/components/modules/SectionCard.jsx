@@ -1,33 +1,28 @@
 // src/components/modules/SectionCard.jsx
 import UiButton from "../ui/UiButton.jsx";
-import { toSection, toTopic } from "../../utils/routes.js";
+import { toSection } from "../../utils/routes.js";
 
 export default function SectionCard({ moduleId, section }) {
+  const go = toSection(moduleId, section.id);
+
+  const style = section.cover
+    ? { "--sn-card-bg-image": `url(${section.cover})` }
+    : undefined;
+
+  const topicsCount = Array.isArray(section.topics) ? section.topics.length : 0;
+
   return (
-    <article className="sn-card sn-container">
-      <div className="sn-card__head">
-        <h3 className="sn-card__title">{section.title}</h3>
-        <p className="sn-card__teaser">{section.teaser}</p>
+    <article className="sn-modcard sn-modcard--static" style={style}>
+      <div className="sn-modcard__toggle">
+        <span className="sn-modcard__tag">Раздел · {topicsCount} тем</span>
+        <h3 className="sn-modcard__title">{section.title}</h3>
+        <p className="sn-modcard__teaser">{section.teaser}</p>
+        <span className="sn-modcard__hint">Внутри — темы и материалы</span>
       </div>
 
-      {/* Список тем внутри блока */}
-      {section.topics?.length ? (
-        <ul className="sn-card__list">
-          {section.topics.map((t) => (
-            <li key={t.id} className="sn-card__item">
-              <UiButton to={toTopic(moduleId, section.id, t.id)} variant="ghost" size="sm">
-                {t.title}
-              </UiButton>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="sn-card__empty">Темы скоро появятся.</p>
-      )}
-
-      <div className="sn-card__footer">
-        <UiButton to={toSection(moduleId, section.id)} variant="primary" size="sm">
-          Открыть блок →
+      <div className="sn-modcard__details">
+        <UiButton to={go} variant="primary" size="sm">
+          Перейти в раздел →
         </UiButton>
       </div>
     </article>

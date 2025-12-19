@@ -18,7 +18,7 @@ export default function ModuleSectionIndexPage() {
         <p className="sn-module-page__lead">{sec.description}</p>
       </header>
 
-      <section className="sn-module-page__section">
+      <section className="sn-module-page">
         <h2 className="sn-module-page__subtitle">Темы блока</h2>
 
         <div className="sn-topic-grid">

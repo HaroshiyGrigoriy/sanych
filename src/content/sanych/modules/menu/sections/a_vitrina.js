@@ -1,13 +1,13 @@
 // src/content/sanych/modules/menu/sections/a_vitrina.js
-import che from "../topics/che.js";
 import whatIsMenu from "../topics/what_is_menu.js";
 
+
 export default {
-  id: "a-vitrina",
+  id: "vitrina",
   order: 1,
   title: "Блок A. Меню как витрина продаж",
   teaser: "Как меню направляет внимание гостя и упрощает выбор.",
   description:
-    "Разбираем меню как витрину и навигацию: порядок внимания, логика разделов, понятные названия и структура.",
-  topics: [whatIsMenu, che],
+    "Форматы и точки размещения (улица/витрина/касса/стол/QR/онлайн), внешний вид, порядок блоков, размер меню, акценты (хиты/новинки/якоря), система размеров, цены, добавки и короткие описания.",
+  topics: [whatIsMenu], // можешь оставить только whatIsMenu, если che был тестовый
 };
