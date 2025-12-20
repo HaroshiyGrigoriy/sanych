@@ -1,17 +1,24 @@
 .sn-bc__list {
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+  list-style: none;
   padding: 0;
-  margin: 0 0 var(--space-md);
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-breadcrumbs);
 }
 
-.sn-bc__item a { color: var(--brand); text-decoration: none; }
+.sn-bc__item a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
 .sn-bc__item a:hover { text-decoration: underline; }
 
 .sn-bc__item:not(:last-child)::after {
   content: "›";
-  margin-left: 8px;
-  opacity: .6;
+  margin-left: 6px;
+  opacity: 0.5;
 }

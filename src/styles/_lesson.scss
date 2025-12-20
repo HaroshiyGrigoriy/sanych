@@ -68,3 +68,104 @@
   background: rgba(255,253,248,.92);
   backdrop-filter: blur(10px);
 }
+.sn-lesson {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 14px 0 84px;
+}
+
+/* ХЕДЕР УРОКА = отдельный блок */
+.sn-lesson__head {
+  position: relative;
+  margin: 0 0 var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  background: var(--color-shell-bg);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* тонкая брендовая “нить” сверху */
+.sn-lesson__head::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: var(--brand-grad);
+  opacity: 0.9;
+}
+
+/* строка “Модуль • Раздел” */
+.sn-lesson__kicker {
+  margin: 0 0 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  opacity: 0.95;
+}
+
+/* заголовок — должен быть главным актёром */
+.sn-lesson__title {
+  margin: 0 0 10px;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.35rem, 4.8vw, 2.1rem);
+}
+
+/* аккуратная “подчёркивающая” полоска под заголовком */
+.sn-lesson__title::after {
+  content: "";
+  display: block;
+  width: 76px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--brand-accent);
+  opacity: 0.85;
+  margin-top: 10px;
+}
+
+/* подзаголовок/тизер */
+.sn-lesson__lead {
+  margin: 0 0 12px;
+  line-height: 1.55;
+  font-size: 1rem;
+  opacity: 0.92;
+}
+
+/* бейджи — как “чипсы”, но единообразно */
+.sn-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 14px;
+}
+
+.sn-badge {
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-subtle);
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.92rem;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+/* кнопка в хедере — отделяем визуально */
+.sn-lesson__topActions {
+  margin-top: 8px;
+}
+
+/* на очень узких экранах добавим “воздух” */
+@media (max-width: 480px) {
+  .sn-lesson__head {
+    padding: 14px;
+  }
+  .sn-badge {
+    padding: 7px 10px;
+    font-size: 0.9rem;
+  }
+}
