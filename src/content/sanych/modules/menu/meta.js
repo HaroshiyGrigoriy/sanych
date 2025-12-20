@@ -5,6 +5,8 @@ import cStandards from "./sections/standards.js";
 import dConstructor from "./sections/constructor.js";
 import eMoney from "./sections/money.js";
 import fAssortment from "./sections/assortment.js";
+import menu_entrance_group from "./topics/menu_entrance_group.js";
+
 
 export default {
   id: "menu",
@@ -21,5 +23,6 @@ export default {
     "Как считать себестоимость и ставить цену",
     "Как обновлять ассортимент без развала структуры",
   ],
-  sections: [aVitrina, bProduct, cStandards, dConstructor, eMoney, fAssortment],
+  sections: [aVitrina, bProduct, cStandards, dConstructor, eMoney, fAssortment,
+  ],
 };
