@@ -1,10 +1,12 @@
 // src/content/sanych/modules/menu/meta.js
-import aVitrina from "./sections/a_vitrina.js";
+import aVitrina from "./sections/a-vitrina/a_vitrina.js";
 import bProduct from "./sections/product.js";
 import cStandards from "./sections/standards.js";
 import dConstructor from "./sections/constructor.js";
 import eMoney from "./sections/money.js";
 import fAssortment from "./sections/assortment.js";
+
+
 
 export default {
   id: "menu",
@@ -21,5 +23,6 @@ export default {
     "Как считать себестоимость и ставить цену",
     "Как обновлять ассортимент без развала структуры",
   ],
-  sections: [aVitrina, bProduct, cStandards, dConstructor, eMoney, fAssortment],
+  sections: [aVitrina, bProduct, cStandards, dConstructor, eMoney, fAssortment,
+  ],
 };

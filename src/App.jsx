@@ -4,6 +4,8 @@ import RootLayout from "./layouts/RootLayout.jsx";
 import ModuleLayout from "./layouts/ModuleLayout.jsx";
 import ModuleIndexPage from "./pages/modules/ModuleIndexPage.jsx";
 import ModuleSectionPage from "./pages/modules/ModuleSectionPage.jsx";
+import ModuleTopicPage from "./pages/modules/TopicPages.jsx";
+
 
 function App() {
   
@@ -17,7 +19,12 @@ function App() {
       
         <Route path=":moduleId" element={<ModuleLayout />}>
           <Route index element={<ModuleIndexPage />} />
-          <Route path=":sectionId" element={<ModuleSectionPage />} />
+           <Route path=":sectionId">
+          <Route index element={<ModuleSectionPage />} />
+          <Route path=":topicId" element={<ModuleTopicPage/>} />
+          <Route path=":topicId/:partId?" element={<ModuleTopicPage />} />
+
+        </Route>
         </Route>
       </Route>
 

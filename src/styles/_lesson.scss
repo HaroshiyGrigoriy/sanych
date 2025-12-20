@@ -1,0 +1,70 @@
+.sn-lesson {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 14px 0 84px;
+}
+
+.sn-lesson__head { margin-bottom: 14px; }
+.sn-lesson__kicker { margin: 0 0 6px; opacity: .7; }
+.sn-lesson__title { margin: 0 0 10px; line-height: 1.15; }
+.sn-lesson__lead { margin: 0 0 12px; opacity: .92; line-height: 1.45; }
+
+.sn-badges { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 12px; }
+.sn-badge {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-subtle, rgba(0,0,0,.10));
+  background: rgba(255,255,255,.55);
+  font-size: .9rem;
+  opacity: .9;
+}
+
+.sn-lesson__topActions { margin-top: 8px; }
+
+.sn-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid transparent;
+  user-select: none;
+}
+
+.sn-btn--wide { width: 100%; }
+
+.sn-btn--ghost {
+  background: transparent;
+  border-color: var(--color-border-subtle, rgba(0,0,0,.10));
+  color: inherit;
+}
+
+.sn-btn--primary {
+  background: var(--brand, #476b8f);
+  color: #fff;
+}
+
+.sn-btn--accent {
+  background: #d07a3a;
+  color: #fff;
+}
+
+.sn-btn--disabled {
+  opacity: .45;
+  pointer-events: none;
+}
+
+.sn-lesson-nav { position: sticky; bottom: 0; padding: 10px 0 0; }
+.sn-lesson-nav__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid var(--color-border-subtle, rgba(0,0,0,.10));
+  background: rgba(255,253,248,.92);
+  backdrop-filter: blur(10px);
+}

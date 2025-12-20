@@ -1,30 +1,49 @@
-export default function BlockRenderer({ blocks = [] }) {
-  return (
-    <div className="sn-blocks">
-      {blocks.map((b, i) => {
-        if (b.type === "lead") return <p key={i} className="sn-block sn-block--lead">{b.text}</p>;
+import { Link } from "react-router-dom";
 
-        if (b.type === "list") {
-          return (
-            <section key={i} className="sn-block">
-              {b.title && <h3 className="sn-block__title">{b.title}</h3>}
-              <ul className="sn-block__list">
-                {b.items.map((x, idx) => <li key={idx}>{x}</li>)}
-              </ul>
-            </section>
-          );
-        }
+export default function BlockRenderer({ block }) {
+  switch (block.type) {
+    case "lead":
+      return <p className="sn-block sn-block--lead">{block.text}</p>;
 
-        if (b.type === "note") {
-          return (
-            <div key={i} className={`sn-block sn-note sn-note--${b.tone ?? "info"}`}>
-              {b.text}
-            </div>
-          );
-        }
+    case "list":
+      return (
+        <section className="sn-block sn-block--list">
+          {block.title ? <h2 className="sn-block__title">{block.title}</h2> : null}
+          <ul className="sn-block__ul">
+            {(block.items ?? []).map((it, idx) => <li key={idx}>{it}</li>)}
+          </ul>
+        </section>
+      );
 
-        return null;
-      })}
-    </div>
-  );
+    case "callout":
+      return (
+        <aside className={`sn-block sn-block--callout sn-tone-${block.tone ?? "info"}`}>
+          {block.title ? <div className="sn-callout__title">{block.title}</div> : null}
+          <p className="sn-callout__text">{block.text}</p>
+        </aside>
+      );
+
+    case "image":
+      return (
+        <figure className="sn-block sn-block--image">
+          <img className="sn-img" src={block.src} alt={block.alt ?? ""} loading="lazy" />
+          {block.caption ? <figcaption className="sn-img__cap">{block.caption}</figcaption> : null}
+        </figure>
+      );
+
+    case "cta":
+      if (block.action?.kind === "link") {
+        return (
+          <div className="sn-block sn-block--cta">
+            <Link className={`sn-btn sn-btn--${block.variant ?? "primary"} sn-btn--wide`} to={block.action.to}>
+              {block.label}
+            </Link>
+          </div>
+        );
+      }
+      return null;
+
+    default:
+      return null;
+  }
 }
