@@ -63,7 +63,8 @@ export default function ModuleTopicPage() {
     : top.teaser;
 
   return (
-    <main className="sn-lesson">
+  <main className="sn-lesson">
+    <section className="sn-surface sn-surface--header">
       <LessonHeader
         moduleTitle={mod.title}
         sectionTitle={sec.title}
@@ -74,14 +75,15 @@ export default function ModuleTopicPage() {
         kind={top.kind}
         toTopics={toSection(mod.id, sec.id)}
       />
+    </section>
 
+    <section className="sn-surface sn-surface--content">
       <LessonContent blocks={blocks} />
+    </section>
 
-      <LessonNav
-        toTopics={toSection(mod.id, sec.id)}
-        prevTo={prevTo}
-        nextTo={nextTo}
-      />
-    </main>
-  );
+    <div className="sn-lesson__navBar">
+      <LessonNav toTopics={toSection(mod.id, sec.id)} prevTo={prevTo} nextTo={nextTo} />
+    </div>
+  </main>
+);
 }

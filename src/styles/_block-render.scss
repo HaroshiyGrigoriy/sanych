@@ -1,29 +1,79 @@
-.sn-block { margin: 0 0 14px; }
-
-.sn-block--lead { font-size: 1.06rem; line-height: 1.6; }
-
-.sn-block__title { margin: 18px 0 10px; font-size: 1.05rem; }
-.sn-block__ul { margin: 0; padding-left: 1.1rem; line-height: 1.6; }
-
-.sn-block--callout {
-  padding: 12px 14px;
-  border-radius: 16px;
-  border: 1px solid var(--color-border-subtle, rgba(0,0,0,.10));
-  background: rgba(0,0,0,.02);
+.sn-lesson__content {
+  display: grid;
+  gap: var(--space-md);
 }
+
+/* lead — пусть остаётся чистым текстом, но с акцентом */
+.sn-block--lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* Список — лёгкая рамка + иконка */
+.sn-block--list {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  padding: var(--space-md);
+  background: rgba(255,255,255,.35); /* очень мягко */
+}
+
+.sn-block__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.sn-block__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(35,75,35,.10);
+  color: var(--brand);
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+.sn-block__title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.sn-block__ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 8px;
+}
+
+/* Callout — не “плашка”, а спокойная заметка с левой полосой */
+.sn-block--callout {
+  border-left: 5px solid transparent;
+  padding: var(--space-md);
+  border-radius: 16px;
+  background: rgba(255,255,255,.25);
+}
+
+.sn-tone-info { border-left-color: var(--brand); }
+.sn-tone-warning { border-left-color: var(--brand-accent); }
+
 .sn-callout__title { font-weight: 800; margin-bottom: 6px; }
-.sn-callout__text { margin: 0; line-height: 1.5; opacity: .92; }
+.sn-callout__text { margin: 0; line-height: 1.5; }
 
-.sn-tone-info { }
-.sn-tone-warning { border-color: rgba(208,122,58,.35); background: rgba(208,122,58,.06); }
-
-.sn-block--image { margin: 16px 0; }
+/* Картинка — без тяжёлых рамок */
+.sn-block--image { margin: 0; }
 .sn-img {
   width: 100%;
   display: block;
   border-radius: 16px;
-  border: 1px solid var(--color-border-subtle, rgba(0,0,0,.10));
+  border: 1px solid var(--color-border-subtle);
 }
-.sn-img__cap { margin-top: 8px; opacity: .75; font-size: .9rem; line-height: 1.35; }
-
-.sn-block--cta { margin-top: 8px; }
+.sn-img__cap {
+  margin-top: 8px;
+  opacity: .75;
+  font-size: .95rem;
+}

@@ -8,20 +8,30 @@ export default function BlockRenderer({ block }) {
     case "list":
       return (
         <section className="sn-block sn-block--list">
-          {block.title ? <h2 className="sn-block__title">{block.title}</h2> : null}
+          <div className="sn-block__head">
+            <span className="sn-block__icon" aria-hidden>≡</span>
+            {block.title ? <h2 className="sn-block__title">{block.title}</h2> : null}
+          </div>
           <ul className="sn-block__ul">
             {(block.items ?? []).map((it, idx) => <li key={idx}>{it}</li>)}
           </ul>
         </section>
       );
 
-    case "callout":
+    case "callout": {
+      const tone = block.tone ?? "info";
+      const icon = tone === "warning" ? "!" : "i";
+
       return (
-        <aside className={`sn-block sn-block--callout sn-tone-${block.tone ?? "info"}`}>
-          {block.title ? <div className="sn-callout__title">{block.title}</div> : null}
+        <aside className={`sn-block sn-block--callout sn-tone-${tone}`}>
+          <div className="sn-block__head">
+            <span className="sn-block__icon" aria-hidden>{icon}</span>
+            {block.title ? <div className="sn-callout__title">{block.title}</div> : null}
+          </div>
           <p className="sn-callout__text">{block.text}</p>
         </aside>
       );
+    }
 
     case "image":
       return (

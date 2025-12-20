@@ -6,16 +6,11 @@ export default function LessonHeader({
 }) {
   return (
     <header className="sn-lesson__head">
-      <p className="sn-lesson__kicker">{moduleTitle} • {sectionTitle}</p>
-      <h1 className="sn-lesson__title">{title}</h1>
+      <h1 className="sn-lesson__title">{title} </h1>
       {teaser ? <p className="sn-lesson__lead">{teaser}</p> : null}
       <LessonMetaBadges minutes={minutes} level={level} kind={kind} />
 
-      <div className="sn-lesson__topActions">
-        <Link className="sn-btn sn-btn--primary sn-btn--wide" to={toTopics}>
-          К темам блока
-        </Link>
-      </div>
+  
     </header>
   );
 }

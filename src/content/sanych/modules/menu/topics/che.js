@@ -1,6 +1,6 @@
 // src/content/sanych/modules/menu/topics/a_vitrina/what_is_menu.js
 export default {
-  id: "what-is-menu",
+  id: "che",
   title: "Меню — это витрина, а не прайс",
   teaser: "Почему меню управляет выбором, даже если ты этого не замечаешь.",
   blocks: [
