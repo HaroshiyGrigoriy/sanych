@@ -1,4 +1,6 @@
 import { Outlet } from "react-router-dom";
+import ScrollToTop from "../components/ui/ScrollTop.jsx"
+
 import SanychHeader from "../components/SanychHeader"; // твой хедер без навигации
 
 export default function RootLayout() {
@@ -9,6 +11,7 @@ export default function RootLayout() {
         <main className="sn-main">
         <div className="sn-shell">
           <div className="sn-shell__inner">
+            <ScrollToTop/>
             <Outlet />
           </div>
         </div>
