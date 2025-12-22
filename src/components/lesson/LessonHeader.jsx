@@ -16,7 +16,6 @@ export default function LessonHeader({
 }) {
   return (
     <header className="sn-lesson__head">
-      <p className="sn-lesson__kicker">{moduleTitle} • {sectionTitle}</p>
 
       {(lessonLabel || partLabel) ? (
         <div className="sn-lesson__labels">

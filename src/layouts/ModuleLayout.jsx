@@ -15,7 +15,6 @@ export default function ModuleLayout() {
 
   if (mod) crumbs.push({ label: mod.title, to: toModule(mod.id) });
   if (sec) crumbs.push({ label: sec.title, to: toSection(mod.id, sec.id) });
-  if (top) crumbs.push( {label: top.title});
 
   return (
     <div className="sn-module-shell sn-container">

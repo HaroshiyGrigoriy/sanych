@@ -68,8 +68,7 @@ export default function ModuleTopicPage() {
   return (
     <main className="sn-lesson">
       <LessonHeader
-        moduleTitle={mod.title}
-        sectionTitle={sec.title}
+      
 
         // новые пропсы
         lessonLabel={lessonSplit.label}        // "Урок 5"
