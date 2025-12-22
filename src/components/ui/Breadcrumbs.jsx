@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Breadcrumbs({ items = [] }) {
   return (
-    <nav className="sn-bc" aria-label="Хлебные крошки">
+    <nav className="sn-lesson sn-bc" aria-label="Хлебные крошки">
       <ol className="sn-bc__list">
         {items.map((it, i) => (
           <li key={i} className="sn-bc__item">

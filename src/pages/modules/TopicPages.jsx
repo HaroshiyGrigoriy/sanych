@@ -5,6 +5,7 @@ import LessonHeader from "../../components/lesson/LessonHeader.jsx";
 import LessonContent from "../../components/lesson/LessonContent.jsx";
 import LessonNav from "../../components/lesson/LessonNav.jsx";
 import { toSection, toTopic, toTopicPart } from "../../utils/routes.js";
+import { splitLessonPrefix, splitPartPrefix } from "../../utils/lessonTitle.js";
 
 export default function ModuleTopicPage() {
   const { moduleId, sectionId, topicId, partId } = useParams();
@@ -18,21 +19,17 @@ export default function ModuleTopicPage() {
 
   const hasParts = Array.isArray(top.parts) && top.parts.length > 0;
 
-  // текущая “страница” темы
   const currentPart = hasParts
     ? (partId ? top.parts.find((p) => p.id === partId) : top.parts[0])
     : null;
 
-  // блоки, которые реально надо рендерить
   const blocks = hasParts ? (currentPart?.blocks ?? []) : (top.blocks ?? []);
 
-  // навигация: если parts — листаем части, иначе — темы
   const { prevTo, nextTo } = useMemo(() => {
     if (hasParts) {
       const list = top.parts ?? [];
       const currentId = currentPart?.id ?? list[0]?.id;
       const idx = list.findIndex((p) => p.id === currentId);
-
       const prevPart = idx > 0 ? list[idx - 1] : null;
       const nextPart = idx < list.length - 1 ? list[idx + 1] : null;
 
@@ -53,37 +50,46 @@ export default function ModuleTopicPage() {
     };
   }, [hasParts, top, currentPart, mod.id, sec.id, sec.topics]);
 
-  // заголовок/тизер: если parts — показываем часть
-  const pageTitle = hasParts
-    ? `${top.title} · ${currentPart?.title ?? ""}`
-    : top.title;
+  // 🔥 Вот тут магия: режем заголовки на “ярлык” и “текст”
+  const lessonSplit = splitLessonPrefix(top.title);
+  const partSplit = hasParts ? splitPartPrefix(currentPart?.title ?? "") : { label: null, text: "" };
 
-  const pageTeaser = hasParts
-    ? (currentPart?.teaser ?? top.teaser)
-    : top.teaser;
+  // Что будет крупным H1:
+  // - если parts есть: крупно показываем смысл части (без "4)")
+  // - если parts нет: крупно показываем смысл урока (без "Урок 5:")
+  const pageTitle = hasParts ? (partSplit.text || lessonSplit.text) : lessonSplit.text;
+
+  // А “вторая строка” (подзаголовок):
+  // - если parts есть: подзаголовком оставляем название урока (без “Урок 5:”)
+  const pageSubtitle = hasParts ? lessonSplit.text : null;
+
+  const pageTeaser = hasParts ? (currentPart?.teaser ?? top.teaser) : top.teaser;
 
   return (
-  <main className="sn-lesson">
-    <section className="sn-surface sn-surface--header">
+    <main className="sn-lesson">
       <LessonHeader
-        moduleTitle={mod.title}
-        sectionTitle={sec.title}
-        title={pageTitle}
+      
+
+        // новые пропсы
+        lessonLabel={lessonSplit.label}        // "Урок 5"
+        partLabel={hasParts ? partSplit.label : null} // "4"
+        subtitle={pageSubtitle}               // "Надкассовое меню — ..."
+        
+        title={pageTitle}                     // "Что показывать..."
         teaser={pageTeaser}
         minutes={top.estimatedMinutes}
         level={top.level}
         kind={top.kind}
         toTopics={toSection(mod.id, sec.id)}
       />
-    </section>
 
-    <section className="sn-surface sn-surface--content">
       <LessonContent blocks={blocks} />
-    </section>
 
-    <div className="sn-lesson__navBar">
-      <LessonNav toTopics={toSection(mod.id, sec.id)} prevTo={prevTo} nextTo={nextTo} />
-    </div>
-  </main>
-);
+      <LessonNav
+        toTopics={toSection(mod.id, sec.id)}
+        prevTo={prevTo}
+        nextTo={nextTo}
+      />
+    </main>
+  );
 }
