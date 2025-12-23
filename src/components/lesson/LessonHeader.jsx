@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import LessonMetaBadges from "./LessonMetaBadges.jsx";
 
 export default function LessonHeader({
-  moduleTitle,
-  sectionTitle,
+  
   lessonLabel,
   partLabel,
   title,
@@ -12,7 +11,6 @@ export default function LessonHeader({
   minutes,
   level,
   kind,
-  toTopics,
 }) {
   return (
     <header className="sn-lesson__head">
