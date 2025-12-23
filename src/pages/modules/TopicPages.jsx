@@ -6,7 +6,7 @@ import LessonContent from "../../components/lesson/LessonContent.jsx";
 import LessonNav from "../../components/lesson/LessonNav.jsx";
 import { toSection, toTopic, toTopicPart } from "../../utils/routes.js";
 import { splitLessonPrefix, splitPartPrefix } from "../../utils/lessonTitle.js";
-
+import PartHeader from "../../components/lesson/PartHeader.jsx";
 export default function ModuleTopicPage() {
   const { moduleId, sectionId, topicId, partId } = useParams();
 
@@ -57,20 +57,19 @@ export default function ModuleTopicPage() {
   // Что будет крупным H1:
   // - если parts есть: крупно показываем смысл части (без "4)")
   // - если parts нет: крупно показываем смысл урока (без "Урок 5:")
-  const pageTitle = hasParts ? (partSplit.text || lessonSplit.text) : lessonSplit.text;
+const pageTitle = lessonSplit.text;
 
-  // А “вторая строка” (подзаголовок):
-  // - если parts есть: подзаголовком оставляем название урока (без “Урок 5:”)
-  const pageSubtitle = hasParts ? lessonSplit.text : null;
+// Подзаголовок = текущая часть (без "1)")
+const pageSubtitle = hasParts ? (partSplit.text || currentPart?.title) : null;
 
-  const pageTeaser = hasParts ? (currentPart?.teaser ?? top.teaser) : top.teaser;
+// Тизер: если parts — тизер части, иначе — тизер темы
+const pageTeaser = hasParts ? (currentPart?.teaser ?? top.teaser) : top.teaser;
+
+
 
   return (
     <main className="sn-lesson">
       <LessonHeader
-      
-
-        // новые пропсы
         lessonLabel={lessonSplit.label}        // "Урок 5"
         partLabel={hasParts ? partSplit.label : null} // "4"
         subtitle={pageSubtitle}               // "Надкассовое меню — ..."
@@ -82,6 +81,14 @@ export default function ModuleTopicPage() {
         kind={top.kind}
         toTopics={toSection(mod.id, sec.id)}
       />
+
+          {hasParts ? (
+      <PartHeader
+                 
+        title={partSplit.text || currentPart?.title}   // "Главная мысль..."
+        teaser={currentPart?.teaser}        // ✅ тизер ЧАСТИ
+      />
+    ) : null}
 
       <LessonContent blocks={blocks} />
 

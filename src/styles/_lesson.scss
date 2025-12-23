@@ -204,3 +204,64 @@
   opacity: .9;
   font-weight: 700;
 }
+.sn-lesson {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 14px 0 84px;
+}
+
+/* ОБЛОЖКА УРОКА */
+.sn-lesson-hero {
+  padding: 16px;
+  border-radius: var(--radius-card, 18px);
+  border: 1px solid var(--color-border-subtle, rgba(0,0,0,.10));
+  background: var(--color-shell-bg, rgba(255,255,255,.6));
+  box-shadow: var(--shadow-card);
+  margin-bottom: 14px;
+}
+
+.sn-lesson-hero__kicker {
+  margin: 0 0 8px;
+  opacity: .75;
+  font-weight: 700;
+}
+
+.sn-lesson-hero__labels { margin: 0 0 10px; }
+
+.sn-lesson-hero__title {
+  margin: 0 0 10px;
+  line-height: 1.12;
+  font-size: 1.55rem;
+  font-weight: 900;
+}
+
+.sn-lesson-hero__lead {
+  margin: 0 0 12px;
+  opacity: .95;
+  line-height: 1.45;
+}
+
+.sn-lesson-hero__actions { margin-top: 10px; }
+
+/* ШАПКА ЧАСТИ */
+.sn-part-head {
+  padding: 14px 14px;
+  border-radius: var(--radius-card, 18px);
+  border: 1px dashed var(--color-border-subtle, rgba(0,0,0,.10));
+  background: rgba(255,255,255,.35);
+  margin-bottom: 14px;
+}
+
+.sn-part-head__top { margin-bottom: 10px; }
+
+.sn-part-head__title {
+  margin: 0 0 8px;
+  line-height: 1.18;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.sn-part-head__teaser {
+  margin: 0;
+  opacity: .9;
+}
